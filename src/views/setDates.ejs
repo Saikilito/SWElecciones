@@ -13,7 +13,7 @@
     <main class="row">
         <div class="col">
             <div class="card shadow rounded text-center cardPosition">
-                <form action="/stadistics" method="post">
+                <form action="/vote" method="post">
                 <div class="card-header">
                     <h3 class="card-title">Ingrese sus datos</h3>
                 </div>
@@ -25,7 +25,7 @@
                             <input type="text" name="name" id="itName" class="form-control" placeholder="Nombre">
                             <div class="errr" id="msj1">Ingrese su nombre</div>
                             <div class="errr" id="msj4">Ingrese un nombre Valido</div>
-                            <input type="text" name="dni" id="itDNI" class="form-control" placeholder="DNI">
+                            <input type="number" min="1999999" max="99999999" name="dni" id="itDNI" class="form-control" placeholder="DNI">
                             <div class="errr" id="msj2">Ingrese un DNI</div>
                             <div class="errr" id="msj3">Ingrese un DNI Valido</div>
                             <p class="h4">
@@ -42,7 +42,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="/stadistics">
+                        <a href="/vote">
                             <button type="submit" id="bSend" class="btn btn-danger">Votar</button>
                         </a>
                     </div>

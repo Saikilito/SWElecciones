@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/app.css">
+    <title>Votaciones</title>
+</head>
+<body class="container-fluid" style="color:black">
+    <h1 class="display-2 text-light text-center">Escoja un candidato </h1> 
+    
+    <main class="row">
+        
+        <% for(var i=0; i < candidatos.length; i++) { %>
+        <div class="col">
+            <div class="card shadow rounded text-center cardPosition ml-5 mb-5" style="width:18rem">
+                <form action="/stadistics" method="post">
+                <div class="card-img-top">
+                    <img src=<%= candidatos[i].photo %> alt="img chucha">
+                </div>
+                    <div class="card-body">
+                        <legend>
+                            Nombre
+                        </legend>
+                        <p><em><%= candidatos[i].name %></em></p>
+                        <legend>
+                            Partido
+                        </legend>
+                        <p><em><%= candidatos[i].group %></em></p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-outline-danger" value=<%= candidatos[i].name %>Votar Aqui</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <% } %>
+    </main>
+
+  
+    <footer></footer>
+    
+    <script src="/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="/script.js"></script>
+    <script src="/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

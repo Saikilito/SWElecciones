@@ -1,0 +1,35 @@
+{
+    "candidatos":
+    [
+        {
+            "name":"Mauricio Macri",
+            "group": "Propuesta Republicana",
+            "votes":0,
+            "photo":"/assets/_M1.jpg",
+            "cand":true 
+        },
+        {
+            "name":"Cristina Kirchner",
+            "group": "P. Justicialista",
+            "photo":"/assets/_C1.jpg",
+            "votes":0,
+            "cand":true 
+        },
+        {
+            "name":"Jose de la Sota",
+            "group": "P. Justicialista",
+            "photo":"/assets/_D1.jpg",
+            "votes":0,
+            "cand":true 
+        },
+        {
+            "name":"Elisa Avelina",
+            "group": "Union Civica Radical",
+            "photo":"/assets/_L1.jpg",
+            "votes":0,
+            "cand":true 
+        }
+        
+        
+    ]
+}
