@@ -17,7 +17,8 @@ router.get('/setDates', (req,res)=>{
 router.get('/vote', (req,res)=>{
     Candidatos.find({},(err,candidatos)=>{
         if(err) throw err;
-        res.render('vote',{candidatos:candidatos,
+        res.render('vote',{
+            candidatos:candidatos,
         });    
     });
     
@@ -31,6 +32,10 @@ router.post('/vote',(req, res)=>{
     let dni = req.body.dni;
    
     Votantes.find({dni:`${dni}` },(err,votante)=>{
+        if(err) 
+        {
+            return res.sendStatus(500).json(err);
+        } 
         if(votante.length == 0 )
         {
             let votante = new Votantes();
@@ -59,7 +64,16 @@ router.get('/stadistics', (req,res)=>{
 
 router.post('/stadistics',(req,res)=>{
     console.log('POST /stadistics: ');
-    console.log(req.body);
+    console.log(req.body) ;
+    
+    let date = req.body.cand
+    
+    Candidatos.findOne({name:{$regex:date}},(err,candidato)=>{
+        candidato.votes = candidato.votes + 1 ;
+        candidato.save();
+        console.log(`${candidato.name} tiene ${candidato.votes} votos`)
+    });
+        
     res.redirect('/stadistics');
 })
 

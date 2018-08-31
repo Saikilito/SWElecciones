@@ -14,9 +14,13 @@
     <main class="row">
         
         <% for(var i=0; i < candidatos.length; i++) { %>
+        
         <div class="col">
+
+
+            <form action="/stadistics" method="post" class="col-12">
             <div class="card shadow rounded text-center cardPosition ml-5 mb-5" style="width:18rem">
-                <form action="/stadistics" method="post">
+                
                 <div class="card-img-top">
                     <img src=<%= candidatos[i].photo %> alt="img chucha">
                 </div>
@@ -31,13 +35,17 @@
                         <p><em><%= candidatos[i].group %></em></p>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-outline-danger" value=<%= candidatos[i].name %>Votar Aqui</button>
+                        <input type="radio" name="cand" id=<%= i %> value=<%= candidatos[i].name %>  />
+                        
                     </div>
-                </form>
+                
             </div>
         </div>
-
         <% } %>
+            
+            <button type="submit" class="btn btn-warning btn-block mt-5 font-italic text-white"><p class="h4">Elegir su candidato</p></button>
+        </form>
+        
     </main>
 
   
