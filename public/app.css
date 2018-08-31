@@ -1,0 +1,31 @@
+body{
+        background: url('./assets/fondo1.jpg') no-repeat;
+        background-attachment: fixed;
+	    color: white;
+}
+
+.centerDiv
+{
+    top: 50em;
+    transform: translate(0%,80%)
+}
+
+.cardPosition
+{
+    top: 4em;
+}
+
+.errr
+{
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: red;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #fff;
+    display: none ; 
+    font-size: 14px;
+    margin-top: 0px;
+    margin-left: 500px;
+    padding: 10px;
+    position: absolute;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/app.css">
+    <title>Votaciones</title>
+
+</head>
+<body class="container " style="color:black">
+    <main class="row">
+        <div class="col">
+            <div class="card shadow rounded text-center cardPosition">
+                <form action="/stadistics" method="post">
+                <div class="card-header">
+                    <h3 class="card-title">Ingrese sus datos</h3>
+                </div>
+                    <div class="card-body">
+                        <legend>
+                            Datos Personales
+                        </legend>
+                        <div class="form-group">
+                            <input type="text" name="name" id="itName" class="form-control" placeholder="Nombre">
+                            <div class="errr" id="msj1">Ingrese su nombre</div>
+                            <div class="errr" id="msj4">Ingrese un nombre Valido</div>
+                            <input type="text" name="dni" id="itDNI" class="form-control" placeholder="DNI">
+                            <div class="errr" id="msj2">Ingrese un DNI</div>
+                            <div class="errr" id="msj3">Ingrese un DNI Valido</div>
+                            <p class="h4">
+                                Sexo
+                            </p>
+                            <label for="sexo">
+                                M
+                                <input type="radio" name="sexo" id="" value="M" checked>
+                            </label>
+                                F
+                                <input type="radio" name="sexo" id="" value="F">
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="/stadistics">
+                            <button type="submit" id="bSend" class="btn btn-danger">Votar</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <footer></footer>
+    
+    <script src="/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="/script.js"></script>
+    <script src="/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

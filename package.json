@@ -1,0 +1,29 @@
+{
+  "name": "swelecciones",
+  "version": "1.0.0",
+  "description": "Emulador de sistema de elecciones",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saikilito/SWElecciones.git"
+  },
+  "author": "Saikilito",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Saikilito/SWElecciones/issues"
+  },
+  "homepage": "https://github.com/Saikilito/SWElecciones#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.12",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
