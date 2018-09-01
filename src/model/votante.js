@@ -1,4 +1,4 @@
-module.exports = ()=>{
+module.exports = function(){
 
     var db = require('../libs/db-connection.js')();
     var Schema = require('mongoose').Schema;
@@ -7,7 +7,7 @@ module.exports = ()=>{
         name: String,
         dni: Number,
         sexo: String,
-        cand: {type: Boolean, dafault: false} 
+        vote: String
     });
   
    return db.model('votantes',Votantes);

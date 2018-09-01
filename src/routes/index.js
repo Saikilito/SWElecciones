@@ -6,6 +6,7 @@ const Candidatos = require('../model/candidato.js')();
 
 
 router.use(express.static('public'));
+
 router.get('/', (req,res)=>{
     res.render('index');
 });
@@ -17,13 +18,9 @@ router.get('/setDates', (req,res)=>{
 router.get('/vote', (req,res)=>{
     Candidatos.find({},(err,candidatos)=>{
         if(err) throw err;
-        res.render('vote',{
-            candidatos:candidatos,
-        });    
+        res.render('vote', {candidatos:candidatos});    
     });
-    
 });
-
 
 router.post('/vote',(req, res)=>{
     console.log('POST /vote: ');
@@ -32,10 +29,8 @@ router.post('/vote',(req, res)=>{
     let dni = req.body.dni;
    
     Votantes.find({dni:`${dni}` },(err,votante)=>{
-        if(err) 
-        {
-            return res.sendStatus(500).json(err);
-        } 
+        if(err) throw err ;
+        
         if(votante.length == 0 )
         {
             let votante = new Votantes();
@@ -50,31 +45,62 @@ router.post('/vote',(req, res)=>{
         {
             console.log(votante);
             console.log('Ya voto');
-            res.redirect('/vote ');
-        }
-        
+            res.redirect('/setDates')
+        }        
     }); 
 });
 
-
-
 router.get('/stadistics', (req,res)=>{
-    res.render('stadistics');
+    
+    Candidatos.find({},(err,candidatos)=>{
+        if(err) 
+            return res.sendStatus(500).json(err)
+        else
+            res.render('stadistics',{candidatos:candidatos});        
+    });
+        
 });
 
 router.post('/stadistics',(req,res)=>{
     console.log('POST /stadistics: ');
-    console.log(req.body) ;
     
     let date = req.body.cand
-    
+
+    let idCand ;
+
     Candidatos.findOne({name:{$regex:date}},(err,candidato)=>{
         candidato.votes = candidato.votes + 1 ;
         candidato.save();
-        console.log(`${candidato.name} tiene ${candidato.votes} votos`)
+        idCand = candidato._id
     });
-        
+/*
+
+    Votantes.find({},(err,votante)=>{
+        console.log(err);
+        console.log(votante); ;
+        votante.save();
+    }); 
+*/
     res.redirect('/stadistics');
+});
+
+router.get('/api', (req,res)=>{
+    Candidatos.find({},(err,candidatos)=>{
+        if(err) throw err ;
+        else
+            res.status(200).send(candidatos.map((e,i)=>candidatos[i].votes));
+    });
+});
+
+router.get('/apiD', (req,res)=>{
+    Votantes.find({},(err,votante)=>{
+        if(err) throw err ;
+        else
+        {
+            console.log(votante)
+            res.status(200).send(votante.map((e,i)=>votante[i].dni));
+        }
+    })
 })
 
 router.get('/*', (req,res)=>{
@@ -82,3 +108,4 @@ router.get('/*', (req,res)=>{
 });
 
 module.exports = router ;
+

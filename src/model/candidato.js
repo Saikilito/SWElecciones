@@ -7,8 +7,7 @@ module.exports = function(){
         name: String,
         group: String,
         votes: Number,
-        photo: String,
-        cand: {type: Boolean, dafault: true} 
+        photo: String
     });
   
    return db.model('candidato',Candidatos);

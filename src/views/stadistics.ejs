@@ -8,36 +8,46 @@
     <link rel="stylesheet" href="/app.css">
     <title>Votaciones</title>
 </head>
-<body class="container " style="color:black">
-    <main class="row">
-        <div class="col">
-            <div class="card shadow rounded text-center cardPosition" style="width:18rem">
-                <form action="/add" method="post">
-                <div class="card-img-top">
-                    <img src="/assets/_M1.jpg" alt="img chucha">
-                </div>
-                    <div class="card-body">
-                        <legend>
-                            Nombre
-                        </legend>
-                        <p><em>Mauricio Macri</em></p>
-                        <legend>
-                            Partido
-                        </legend>
-                        <p><em>Somos</em></p>
-                    </div>
-                    <div class="card-footer">
-                        <legend id="stadistics">Estadistica</legend>
-                        <div class="progress">
-                            <div id="barP" class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:25%">
-                            </div>
-                        </div> 
-                    </div>
-                </form>
-            </div>
+<body class="container-fluid " style="color:black">
+        <h1 class="display-2 text-center text-white">Estadisticas de las elecciones</h1>
 
-        </div>
-    </main>
+        <main class="row">
+        
+                <% for(var i=0; i < candidatos.length; i++) { %>
+                
+                <div class="col">
+                    <div class="card shadow rounded text-center cardPosition ml-5 mb-5" style="width:18rem">
+                        
+                        <div class="card-img-top">
+                            <img src=<%= candidatos[i].photo %> alt="img chucha">
+                        </div>
+                            <div class="card-body">
+                                <legend>
+                                    Nombre
+                                </legend>
+                                <p><em><%= candidatos[i].name %></em></p>
+                                <legend>
+                                    Partido
+                                </legend>
+                                <p><em><%= candidatos[i].group %></em></p>
+                            </div>
+                            <div class="card-footer">
+                                <legend id=<%=`stad${i}`%>  > Estadistica: </legend>
+                                <div class="progress">
+                                    <div id=<%=`barP${i}`%> class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:100%">
+                                    </div>
+                                </div> 
+                            </div>
+                        
+                    </div>
+                </div>
+                <% } %>
+                    <a href="/" class="btn btn-dark btn-block mt-4">
+                        <button class="btn btn-dark" ><p class="h4 text-center font-italic text-white">Salir!</p></button>
+                    </a>
+                
+            </main>
+
     <footer></footer>
     
     <script src="/bootstrap/jquery-3.3.1.min.js"></script>
@@ -45,3 +55,4 @@
     <script src="/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
+
