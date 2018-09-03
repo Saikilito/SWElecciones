@@ -35,14 +35,14 @@
                         <p><em><%= candidatos[i].group %></em></p>
                     </div>
                     <div class="card-footer">
-                        <input type="radio" name="cand" id=<%= i %> value=<%= candidatos[i].name %>  />
-                        
+                        <input type="radio" name="cand" id=<%= i %> value=<%= candidatos[i]._id %>  />
                     </div>
                 
             </div>
         </div>
+
         <% } %>
-            
+            <input style="display: none" type="radio" name="dniVot"  id="" value="" > 
             <button type="submit" onclick="cconfirm()" class="btn btn-warning btn-block mt-5 font-italic text-white"><p class="h4">Elegir su candidato</p></button>
         </form>
         
@@ -52,7 +52,6 @@
     <footer></footer>
     
     <script src="/bootstrap/jquery-3.3.1.min.js"></script>
-    <script src="/script.js"></script>
     <script src="/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

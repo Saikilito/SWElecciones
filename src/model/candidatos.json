@@ -24,12 +24,10 @@
         },
         {
             "name":"Elisa Avelina",
-            "group": "Union Civica Radical",
+            "group": "Union Civico Radical",
             "photo":"/assets/_L1.jpg",
             "votes":0,
             "cand":true 
-        }
-        
-        
+        }     
     ]
 }

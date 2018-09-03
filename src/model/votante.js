@@ -1,9 +1,9 @@
 module.exports = function(){
 
-    var db = require('../libs/db-connection.js')();
-    var Schema = require('mongoose').Schema;
+    const db = require('../libs/db-connection.js')();
+    const { Schema } = require('mongoose');
 
-    var Votantes = Schema({
+    var Votantes = new Schema({
         name: String,
         dni: Number,
         sexo: String,
